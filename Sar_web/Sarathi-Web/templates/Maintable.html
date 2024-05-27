@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-14">
+                <div class="alert alert-info" style="font-size: 30px; font-weight:bold ;">
+                    Sarathi</div>
+                <div class="alert alert-success" style="display:none;">
+                    <span class="glyphicon glyphicon-ok"></span> Drag table row and cange Order</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>
+                                Longitude
+                            </th>
+                            <th>
+                                Latitude
+                            </th>
+                            <th>
+                                Date Time
+                            </th>
+                            <th>
+                                Action
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for d in range(data|length)%}
+                        {% if d%2 %}
+                        <tr class="active">
+                        {%else%}
+                        <tr class="active">
+                        {%endif%}
+                            <td>
+                                {data[d]["Longitude"]}
+                            </td>
+                            <td>
+                                {data[d]["Latitude"]}
+                            </td>
+                            <td>
+                                {data[d]["time"]}
+                            </td>
+                            <td>
+                                <a href="http://maps.google.com/maps?&z=15&mrt=yp&t=k&q={data[d]['Latitude']}+{data[d]['Longitude']}" target="_top"><button>Open Location</button></a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        <tr class="">
+                            <td>
+                                Column content
+                            </td>
+                            <td>
+                                Column content
+                            </td>
+                            <td>
+                                Column content
+                            </td>
+                            <td>
+                                <button>Open Location</button>
+                            </td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+<script>
+    (function ($) {
+    $.fn.extend({
+        tableAddCounter: function (options) {
+
+            // set up default options 
+            var defaults = {
+                title: '#',
+                start: 1,
+                id: false,
+                cssClass: false
+            };
+
+            // Overwrite default options with user provided
+            var options = $.extend({}, defaults, options);
+
+            return $(this).each(function () {
+                // Make sure this is a table tag
+                if ($(this).is('table')) {
+
+                    // Add column title unless set to 'false'
+                    if (!options.title) options.title = '';
+                    $('th:first-child, thead td:first-child', this).each(function () {
+                        var tagName = $(this).prop('tagName');
+                        $(this).before('<' + tagName + ' rowspan="' + $('thead tr').length + '" class="' + options.cssClass + '" id="' + options.id + '">' + options.title + '</' + tagName + '>');
+                    });
+
+                    // Add counter starting counter from 'start'
+                    $('tbody td:first-child', this).each(function (i) {
+                        $(this).before('<td>' + (options.start + i) + '</td>');
+                    });
+
+                }
+            });
+        }
+    });
+})(jQuery);
+
+$(document).ready(function () {
+    $('.table').tableAddCounter();
+    $.getScript("http://code.jquery.com/ui/1.9.2/jquery-ui.js").done(function (script, textStatus) { $('tbody').sortable();$(".alert-info").alert('close');$(".alert-success").show(); });
+});
+</script>
+
+      
+</body>
+</html>

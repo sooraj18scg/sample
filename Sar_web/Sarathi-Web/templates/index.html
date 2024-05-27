@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% url_for('static' , filename = 'css/index.css')%}">
+    <title>Document</title>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="{% url_for('static',filename = 'css/index2.css')%}" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+      .splash{
+        
+        height: 100vh;
+        width: 100vw;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+      .slider {
+        overflow-y: hidden;
+        max-height: 100vh; /* approximate max height */
+      
+        transition-property: all;
+        transition-duration: 1.5s;
+        transition-timing-function: cubic-bezier(0, 1, 0.5, 1);
+      }
+      .sliderclosed {
+        max-height: 0;
+      }
+      
+    </style>
+</head>
+<body >
+  <img src="{% url_for('static',filename = 'img/splash.png')%}" id="splash" class="splash slider" />
+  <div hidden id="maincontainer">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark grad ">
+        <div style="margin-left:13px ;">
+          <a class="navbar-brand" href="/">Saarthi</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <a class="nav-link" href="/">Home </a>
+              </li>
+              <li class="nav-item ">
+                <a class="nav-link" href="/location">Locations </a>
+              </li>
+            </ul>
+          </div>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item ">
+                <a style="font-size:24px;" class="nav-link" >  S A R A T H I  </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        
+  <div>
+    <div class="gear" style="background-image:url('static/img/background.jpg') ;opacity:0.85;">
+      <section>
+        <div class="content" style="text-align:center; align-self: center;">
+          <h2>SARATHI</h2>
+          <h2>SARATHI</h2>  
+        </div>
+      </section>
+      <section>
+        <div id="container " >
+          <span id="text1"></span>
+          <span id="text2"></span>
+      </div>
+      <div class='console-container'><span id='text'></span></div>  </div>
+  </div>
+
+  <div>
+    <!-- about -->
+  <div class="about">
+    <a class="bg_links social portfolio" href="https://www.rafaelalucas.com" target="_blank">
+      <span class="icon"></span>
+    </a>
+    <a class="bg_links social dribbble" href="https://dribbble.com/rafaelalucas" target="_blank">
+      <span class="icon"></span>
+    </a>
+    <a class="bg_links social linkedin" href="https://www.linkedin.com/in/rafaelalucas/" target="_blank">
+      <span class="icon"></span>
+    </a>
+    <a class="bg_links logo"></a>
+  </div>
+  <!-- end about -->
+
+  <div style="text-align:center; margin:2%">
+    <h1>Details</h1>
+  </div>
+
+  <div class="cards my-5 " style="font-size:23px">
+  <div class="card ">
+    <span class="close"></span>
+    <span class="arrow"></span>
+    <article>
+      
+      
+      <div class="title my-3">About</div>
+      <div class="title">
+        <img style="width:35px"src="static/img/130188.png">
+
+      </div>
+
+      <div class="desc my-5">The aim of this project is to provide an innovative system is to provide an innovative system to avoid road accidents related to weather and geographical location.</div>
+
+    </article>
+    
+  </div>
+  <div class="card">
+    <span class="close"></span>
+    <span class="arrow"></span>
+    <article>
+      <h2>Team</h2>
+      <div class="title">
+        <img style="width:35px"src="static/img/130188.png">
+
+      </div>
+
+      <div class="desc my-2" style="height:6em ;">
+        
+        <ul class="my-5">
+        <li>Kapil chaudhary</li>
+        <li>Garvit Singhal</li>
+        <li>Utkarsh aWasthi</li>
+        <li>Suraj Updhyay</li>
+        <li>Ashish Sikarwar</li>
+      </ul>
+      </div>
+
+    </article>
+    
+  </div>
+  
+  <div class="card">
+    <span class="close"></span>
+    <span class="arrow"></span>
+    <article>
+      <h2>USP</h2>
+      <div class="title">
+        <img style="width:35px"src="static/img/130188.png">
+
+      </div>
+      <div class="desc my-4" style="height:18px ; margin-bottom: 3rem
+      ;">
+        <ul  class="my-5">
+          <li>Cost efficient module</li>
+          <li>Compact & Flexible Module</li>
+          <li>Cloud Based Managment</li>
+          <li>SOS Evacuation</li>
+          <li>Ingenious Saviour System</li>
+          <li>Realtime Accident Blakspot Alert </li>
+          <li>Weather Proof Alert</li>
+          <li>Android App and Web interface</li>
+
+        </ul>
+      </div>
+
+    </article>
+    
+  </div>
+  </div>
+  </div>  
+  </div>
+</div>
+</body>
+<script src="/static/js/index.js"></script>
+<script>
+  setTimeout(()=>{
+    console.log("hii")
+    document.getElementById("splash").setAttribute("class","slider sliderclosed splash")
+    document.getElementById("maincontainer").removeAttribute("hidden")
+  },2000)
+</script>
+
+</html>
